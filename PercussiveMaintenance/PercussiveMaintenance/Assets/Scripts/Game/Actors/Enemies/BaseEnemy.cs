@@ -17,15 +17,14 @@ public enum EnemyType
 
 public class BaseEnemy : RenderedActor
 {
+    public event Action EnemyHit;
+    public event Action EnemyDead;
     public float Speed;
     public EnemyType EnemyType;
     public string ID;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    public Vector3 EndPos;
 	
-	// Update is called once per frame
 	void Update ()
     {
         Move();
@@ -34,6 +33,10 @@ public class BaseEnemy : RenderedActor
     void Move()
     {
         float step = Speed * Time.deltaTime;
-       // transform.position = Vector3.MoveTowards(transform.position, .position, step);
+        transform.position = Vector3.MoveTowards(transform.position, EndPos, step);
     }
+
+    
+
+    
 }
