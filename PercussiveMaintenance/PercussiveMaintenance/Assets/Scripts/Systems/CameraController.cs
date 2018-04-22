@@ -18,8 +18,6 @@ public class CameraController : MonoBehaviour
         var axisH = Input.GetAxis("Horizontal");
         var axisV = Input.GetAxis("Vertical");
         var zoom = Input.GetAxis("Mouse ScrollWheel");
-        print(zoom);
-
 
         Camera.main.transform.Translate(new Vector3(axisH, 0, axisV) * speed, Space.World);
         Camera.main.transform.Translate(new Vector3(0, -zoom * 5, 0) * speed, Space.Self);
